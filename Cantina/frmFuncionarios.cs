@@ -136,6 +136,18 @@ namespace Cantina
 
             DR.Read();
 
+            txtCodigo.Text = DR.GetInt32(0).ToString();
+            txtNome.Text = DR.GetString(1);
+            txtEmail.Text = DR.GetString(2);
+            mskCPF.Text = DR.GetString(3);
+            mskTelefone.Text = DR.GetString(4);
+            mskCEP.Text = DR.GetString(5);
+            txtEndereco.Text = DR.GetString(6);
+            txtNumero.Text = DR.GetString(7);
+            txtBairro.Text = DR.GetString(8);
+            txtCidade.Text = DR.GetString(9);
+            cbbEstado.Text = DR.GetString(10);
+
             Conexao.fecharConexao();
         }
 
