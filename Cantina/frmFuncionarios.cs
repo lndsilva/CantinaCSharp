@@ -37,6 +37,7 @@ namespace Cantina
             //executando o método desabilitar campos
             desabilitarCampos();
             txtNome.Text = nome;
+            carregaFuncionariosNome(txtNome.Text);
         }
 
         private void frmFuncionarios_Load(object sender, EventArgs e)
@@ -127,11 +128,11 @@ namespace Cantina
 
             comm.Parameters.Clear();
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
-            
+
             comm.Connection = Conexao.obterConexao();
 
             MySqlDataReader DR;
-            
+
             DR = comm.ExecuteReader();
 
             DR.Read();
@@ -149,6 +150,12 @@ namespace Cantina
             cbbEstado.Text = DR.GetString(10);
 
             Conexao.fecharConexao();
+            habilitarCampos();
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnLimpar.Enabled = true;
+            btnNovo.Enabled = false;
+            btnCadastrar.Enabled = false;
         }
 
         //cadastrar funcionários
@@ -264,11 +271,11 @@ namespace Cantina
             Conexao.fecharConexao();
         }
 
+        //criando alterar funcionarios
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            //alterarFuncionarios(Convert.ToInt32(txtCodigo.Text));
+            alterarFuncionarios(Convert.ToInt32(txtCodigo.Text));
         }
-
         //Excluindo funcionarios
         public int excluirFuncionarios(int codFunc)
         {
