@@ -38,7 +38,7 @@ namespace Cantina
             desabilitarCampos();
             txtNome.Text = nome;
         }
-      
+
         private void frmFuncionarios_Load(object sender, EventArgs e)
         {
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
@@ -116,6 +116,27 @@ namespace Cantina
             habilitarCampos();
             btnNovo.Enabled = false;
             txtNome.Focus();
+        }
+
+        //carregar funcionarios pelo nome
+        public void carregaFuncionariosNome(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios where nome = @nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+            
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataReader DR;
+            
+            DR = comm.ExecuteReader();
+
+            DR.Read();
+
+            Conexao.fecharConexao();
         }
 
         //cadastrar funcionários
