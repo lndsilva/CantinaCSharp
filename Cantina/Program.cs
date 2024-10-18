@@ -16,7 +16,7 @@ namespace Cantina
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new frmFuncionarios());
+            Application.Run(new frmCadastroUsuario());
         }
     }
 }
