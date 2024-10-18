@@ -53,7 +53,6 @@ namespace Cantina
             while (DR.Read())
             {
                 cbbFuncionarios.Items.Add(DR.GetString(1));
-
             }
                      
             Conexao.fecharConexao();
