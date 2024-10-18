@@ -386,6 +386,7 @@ namespace Cantina
             this.Controls.Add(this.gpbDadosPessoais);
             this.Controls.Add(this.pnlCRUD);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "frmCadastroUsuario";
             this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.frmCadastroUsuario_Load);
