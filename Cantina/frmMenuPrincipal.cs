@@ -47,5 +47,12 @@ namespace Cantina
             abrir.Show();
             this.Hide();
         }
+
+        private void btnUsuarios_Click(object sender, EventArgs e)
+        {
+            frmCadastroUsuario abrir = new frmCadastroUsuario();
+            abrir.Show();
+            this.Hide();
+        }
     }
 }

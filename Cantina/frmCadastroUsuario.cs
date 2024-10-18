@@ -34,5 +34,13 @@ namespace Cantina
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
         }
+
+        private void btnVoltar_Click(object sender, EventArgs e)
+        {
+            frmMenuPrincipal abrir = new frmMenuPrincipal();
+            abrir.Show();
+            this.Hide();
+
+        }
     }
 }

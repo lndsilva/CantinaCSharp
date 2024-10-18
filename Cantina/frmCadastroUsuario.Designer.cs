@@ -43,19 +43,22 @@ namespace Cantina
             this.btnAlterar = new System.Windows.Forms.Button();
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
-            this.gpbDadosPessoais = new System.Windows.Forms.GroupBox();
+            this.gpbDadosUsuario = new System.Windows.Forms.GroupBox();
             this.pnlCRUD = new System.Windows.Forms.Panel();
             this.txtRepetirSenha = new System.Windows.Forms.TextBox();
             this.lblRepetirSenha = new System.Windows.Forms.Label();
-            this.gpbDadosPessoais.SuspendLayout();
+            this.gpbDadosUsuario.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
             this.SuspendLayout();
             // 
             // txtSenha
             // 
+            this.txtSenha.Font = new System.Drawing.Font("Wingdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.txtSenha.Location = new System.Drawing.Point(56, 237);
+            this.txtSenha.MaxLength = 10;
             this.txtSenha.Name = "txtSenha";
-            this.txtSenha.Size = new System.Drawing.Size(289, 26);
+            this.txtSenha.PasswordChar = 'l';
+            this.txtSenha.Size = new System.Drawing.Size(289, 25);
             this.txtSenha.TabIndex = 3;
             // 
             // lblSenha
@@ -70,6 +73,7 @@ namespace Cantina
             // txtUsuario
             // 
             this.txtUsuario.Location = new System.Drawing.Point(56, 156);
+            this.txtUsuario.MaxLength = 25;
             this.txtUsuario.Name = "txtUsuario";
             this.txtUsuario.Size = new System.Drawing.Size(289, 26);
             this.txtUsuario.TabIndex = 2;
@@ -85,6 +89,7 @@ namespace Cantina
             // 
             // txtCodigo
             // 
+            this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(56, 80);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
@@ -110,6 +115,7 @@ namespace Cantina
             this.btnVoltar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnVoltar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnVoltar.UseVisualStyleBackColor = true;
+            this.btnVoltar.Click += new System.EventHandler(this.btnVoltar_Click);
             // 
             // btnLimpar
             // 
@@ -183,23 +189,23 @@ namespace Cantina
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
             // 
-            // gpbDadosPessoais
+            // gpbDadosUsuario
             // 
-            this.gpbDadosPessoais.Controls.Add(this.txtRepetirSenha);
-            this.gpbDadosPessoais.Controls.Add(this.lblRepetirSenha);
-            this.gpbDadosPessoais.Controls.Add(this.txtSenha);
-            this.gpbDadosPessoais.Controls.Add(this.lblSenha);
-            this.gpbDadosPessoais.Controls.Add(this.txtUsuario);
-            this.gpbDadosPessoais.Controls.Add(this.lblUsuario);
-            this.gpbDadosPessoais.Controls.Add(this.txtCodigo);
-            this.gpbDadosPessoais.Controls.Add(this.lblCodigo);
-            this.gpbDadosPessoais.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.gpbDadosPessoais.Location = new System.Drawing.Point(7, 6);
-            this.gpbDadosPessoais.Name = "gpbDadosPessoais";
-            this.gpbDadosPessoais.Size = new System.Drawing.Size(771, 472);
-            this.gpbDadosPessoais.TabIndex = 21;
-            this.gpbDadosPessoais.TabStop = false;
-            this.gpbDadosPessoais.Text = "Dados do usuário";
+            this.gpbDadosUsuario.Controls.Add(this.txtRepetirSenha);
+            this.gpbDadosUsuario.Controls.Add(this.lblRepetirSenha);
+            this.gpbDadosUsuario.Controls.Add(this.txtSenha);
+            this.gpbDadosUsuario.Controls.Add(this.lblSenha);
+            this.gpbDadosUsuario.Controls.Add(this.txtUsuario);
+            this.gpbDadosUsuario.Controls.Add(this.lblUsuario);
+            this.gpbDadosUsuario.Controls.Add(this.txtCodigo);
+            this.gpbDadosUsuario.Controls.Add(this.lblCodigo);
+            this.gpbDadosUsuario.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.gpbDadosUsuario.Location = new System.Drawing.Point(7, 6);
+            this.gpbDadosUsuario.Name = "gpbDadosUsuario";
+            this.gpbDadosUsuario.Size = new System.Drawing.Size(771, 472);
+            this.gpbDadosUsuario.TabIndex = 21;
+            this.gpbDadosUsuario.TabStop = false;
+            this.gpbDadosUsuario.Text = "Dados do usuário";
             // 
             // pnlCRUD
             // 
@@ -217,9 +223,12 @@ namespace Cantina
             // 
             // txtRepetirSenha
             // 
+            this.txtRepetirSenha.Font = new System.Drawing.Font("Wingdings", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(2)));
             this.txtRepetirSenha.Location = new System.Drawing.Point(56, 314);
+            this.txtRepetirSenha.MaxLength = 10;
             this.txtRepetirSenha.Name = "txtRepetirSenha";
-            this.txtRepetirSenha.Size = new System.Drawing.Size(289, 26);
+            this.txtRepetirSenha.PasswordChar = 'l';
+            this.txtRepetirSenha.Size = new System.Drawing.Size(289, 25);
             this.txtRepetirSenha.TabIndex = 9;
             // 
             // lblRepetirSenha
@@ -236,7 +245,7 @@ namespace Cantina
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(784, 561);
-            this.Controls.Add(this.gpbDadosPessoais);
+            this.Controls.Add(this.gpbDadosUsuario);
             this.Controls.Add(this.pnlCRUD);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
@@ -244,8 +253,8 @@ namespace Cantina
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cadastro de Usuários";
             this.Load += new System.EventHandler(this.frmCadastroUsuario_Load);
-            this.gpbDadosPessoais.ResumeLayout(false);
-            this.gpbDadosPessoais.PerformLayout();
+            this.gpbDadosUsuario.ResumeLayout(false);
+            this.gpbDadosUsuario.PerformLayout();
             this.pnlCRUD.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -265,7 +274,7 @@ namespace Cantina
         private System.Windows.Forms.Button btnAlterar;
         private System.Windows.Forms.Button btnCadastrar;
         private System.Windows.Forms.Button btnNovo;
-        private System.Windows.Forms.GroupBox gpbDadosPessoais;
+        private System.Windows.Forms.GroupBox gpbDadosUsuario;
         private System.Windows.Forms.Panel pnlCRUD;
         private System.Windows.Forms.TextBox txtRepetirSenha;
         private System.Windows.Forms.Label lblRepetirSenha;
