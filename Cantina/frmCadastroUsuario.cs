@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Runtime.InteropServices;
+using MySql.Data.MySqlClient;
 
 namespace Cantina
 {
@@ -26,6 +27,7 @@ namespace Cantina
         public frmCadastroUsuario()
         {
             InitializeComponent();
+            carregaFuncionarios();
         }
 
         private void frmCadastroUsuario_Load(object sender, EventArgs e)
@@ -33,6 +35,28 @@ namespace Cantina
             IntPtr hMenu = GetSystemMenu(this.Handle, false);
             int MenuCount = GetMenuItemCount(hMenu) - 1;
             RemoveMenu(hMenu, MenuCount, MF_BYCOMMAND);
+        }
+
+        public void carregaFuncionarios()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbFuncionarios;";
+            comm.CommandType = CommandType.Text;
+            comm.Connection = Conexao.obterConexao();
+            
+            MySqlDataReader DR;
+
+            DR = comm.ExecuteReader();
+
+            cbbFuncionarios.Items.Clear();
+
+            while (DR.Read())
+            {
+                cbbFuncionarios.Items.Add(DR.GetString(1));
+
+            }
+                     
+            Conexao.fecharConexao();
         }
 
         private void btnVoltar_Click(object sender, EventArgs e)

@@ -47,6 +47,8 @@ namespace Cantina
             this.pnlCRUD = new System.Windows.Forms.Panel();
             this.txtRepetirSenha = new System.Windows.Forms.TextBox();
             this.lblRepetirSenha = new System.Windows.Forms.Label();
+            this.cbbFuncionarios = new System.Windows.Forms.ComboBox();
+            this.lblFuncionarios = new System.Windows.Forms.Label();
             this.gpbDadosUsuario.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
             this.SuspendLayout();
@@ -191,6 +193,8 @@ namespace Cantina
             // 
             // gpbDadosUsuario
             // 
+            this.gpbDadosUsuario.Controls.Add(this.lblFuncionarios);
+            this.gpbDadosUsuario.Controls.Add(this.cbbFuncionarios);
             this.gpbDadosUsuario.Controls.Add(this.txtRepetirSenha);
             this.gpbDadosUsuario.Controls.Add(this.lblRepetirSenha);
             this.gpbDadosUsuario.Controls.Add(this.txtSenha);
@@ -240,6 +244,23 @@ namespace Cantina
             this.lblRepetirSenha.TabIndex = 10;
             this.lblRepetirSenha.Text = "Repetir a senha";
             // 
+            // cbbFuncionarios
+            // 
+            this.cbbFuncionarios.FormattingEnabled = true;
+            this.cbbFuncionarios.Location = new System.Drawing.Point(466, 78);
+            this.cbbFuncionarios.Name = "cbbFuncionarios";
+            this.cbbFuncionarios.Size = new System.Drawing.Size(244, 28);
+            this.cbbFuncionarios.TabIndex = 11;
+            // 
+            // lblFuncionarios
+            // 
+            this.lblFuncionarios.AutoSize = true;
+            this.lblFuncionarios.Location = new System.Drawing.Point(466, 57);
+            this.lblFuncionarios.Name = "lblFuncionarios";
+            this.lblFuncionarios.Size = new System.Drawing.Size(100, 20);
+            this.lblFuncionarios.TabIndex = 12;
+            this.lblFuncionarios.Text = "Funcionários";
+            // 
             // frmCadastroUsuario
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -278,5 +299,7 @@ namespace Cantina
         private System.Windows.Forms.Panel pnlCRUD;
         private System.Windows.Forms.TextBox txtRepetirSenha;
         private System.Windows.Forms.Label lblRepetirSenha;
+        private System.Windows.Forms.Label lblFuncionarios;
+        private System.Windows.Forms.ComboBox cbbFuncionarios;
     }
 }
