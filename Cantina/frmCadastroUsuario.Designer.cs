@@ -49,6 +49,7 @@ namespace Cantina
             this.lblRepetirSenha = new System.Windows.Forms.Label();
             this.cbbFuncionarios = new System.Windows.Forms.ComboBox();
             this.lblFuncionarios = new System.Windows.Forms.Label();
+            this.lblMostraCodigoFuncionario = new System.Windows.Forms.Label();
             this.gpbDadosUsuario.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
             this.SuspendLayout();
@@ -193,6 +194,7 @@ namespace Cantina
             // 
             // gpbDadosUsuario
             // 
+            this.gpbDadosUsuario.Controls.Add(this.lblMostraCodigoFuncionario);
             this.gpbDadosUsuario.Controls.Add(this.lblFuncionarios);
             this.gpbDadosUsuario.Controls.Add(this.cbbFuncionarios);
             this.gpbDadosUsuario.Controls.Add(this.txtRepetirSenha);
@@ -251,6 +253,7 @@ namespace Cantina
             this.cbbFuncionarios.Name = "cbbFuncionarios";
             this.cbbFuncionarios.Size = new System.Drawing.Size(244, 28);
             this.cbbFuncionarios.TabIndex = 11;
+            this.cbbFuncionarios.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionarios_SelectedIndexChanged);
             // 
             // lblFuncionarios
             // 
@@ -260,6 +263,15 @@ namespace Cantina
             this.lblFuncionarios.Size = new System.Drawing.Size(100, 20);
             this.lblFuncionarios.TabIndex = 12;
             this.lblFuncionarios.Text = "Funcionários";
+            // 
+            // lblMostraCodigoFuncionario
+            // 
+            this.lblMostraCodigoFuncionario.AutoSize = true;
+            this.lblMostraCodigoFuncionario.Location = new System.Drawing.Point(466, 159);
+            this.lblMostraCodigoFuncionario.Name = "lblMostraCodigoFuncionario";
+            this.lblMostraCodigoFuncionario.Size = new System.Drawing.Size(213, 20);
+            this.lblMostraCodigoFuncionario.TabIndex = 13;
+            this.lblMostraCodigoFuncionario.Text = "Mostra código do funcionário";
             // 
             // frmCadastroUsuario
             // 
@@ -301,5 +313,6 @@ namespace Cantina
         private System.Windows.Forms.Label lblRepetirSenha;
         private System.Windows.Forms.Label lblFuncionarios;
         private System.Windows.Forms.ComboBox cbbFuncionarios;
+        private System.Windows.Forms.Label lblMostraCodigoFuncionario;
     }
 }

@@ -43,7 +43,7 @@ namespace Cantina
             comm.CommandText = "select * from tbFuncionarios;";
             comm.CommandType = CommandType.Text;
             comm.Connection = Conexao.obterConexao();
-            
+
             MySqlDataReader DR;
 
             DR = comm.ExecuteReader();
@@ -54,7 +54,7 @@ namespace Cantina
             {
                 cbbFuncionarios.Items.Add(DR.GetString(1));
             }
-                     
+
             Conexao.fecharConexao();
         }
 
@@ -63,6 +63,28 @@ namespace Cantina
             frmMenuPrincipal abrir = new frmMenuPrincipal();
             abrir.Show();
             this.Hide();
+
+        }
+
+        public void selecionaCodigoFuncionario(string nome)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codFunc from tbfuncionarios where nome = @nome;";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = Conexao.obterConexao();
+            comm.Parameters.Clear();
+
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
+
+            Conexao.fecharConexao();
+        }
+
+        private void cbbFuncionarios_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+
+
 
         }
     }
