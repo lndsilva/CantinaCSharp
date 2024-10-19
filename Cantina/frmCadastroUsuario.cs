@@ -77,6 +77,12 @@ namespace Cantina
 
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = nome;
 
+            MySqlDataReader DR;
+            DR = comm.ExecuteReader();
+            DR.Read();
+
+            lblMostraCodigoFuncionario.Text = DR.GetString(0);
+
             Conexao.fecharConexao();
         }
 
