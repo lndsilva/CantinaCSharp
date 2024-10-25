@@ -91,7 +91,7 @@ namespace Cantina
         private void cbbFuncionarios_SelectedIndexChanged(object sender, EventArgs e)
         {
             lblMostraCodigoFuncionario.Text = selecionaCodigoFuncionario(cbbFuncionarios.SelectedItem.ToString()).ToString();
-            selecionaUsuarios(lblMostraCodigoFuncionario.Text);
+            selecionaUsuarios(Convert.ToInt32(lblMostraCodigoFuncionario.Text));
         }
 
         public void selecionaUsuarios(int codFunc)
@@ -109,12 +109,22 @@ namespace Cantina
             DR = comm.ExecuteReader();
 
             DR.Read();
+            try
+            {
+                txtCodigo.Text = DR.GetInt32(0).ToString();
+                txtUsuario.Text = DR.GetString(1);
+                txtSenha.Text = DR.GetString(2);
 
-            txtCodigo.Text = DR.GetInt32(0).ToString();
-            txtUsuario.Text = DR.GetString(0);
-            txtSenha.Text = DR.GetString(1);
-
-            Conexao.fecharConexao();
+                Conexao.fecharConexao();
+            }
+            catch (Exception)
+            {
+                MessageBox.Show("Funcionário sem usuário.");
+                txtUsuario.Clear();
+                txtSenha.Clear();
+                txtCodigo.Clear();
+                txtUsuario.Focus();
+            }
         }
 
         //variavel global
