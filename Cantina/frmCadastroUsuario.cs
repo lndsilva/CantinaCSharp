@@ -66,7 +66,7 @@ namespace Cantina
 
         }
 
-        public void selecionaCodigoFuncionario(string nome)
+        public int selecionaCodigoFuncionario(string nome)
         {
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "select codFunc from tbfuncionarios where nome = @nome;";
@@ -83,12 +83,21 @@ namespace Cantina
 
             codFunc = DR.GetInt32(0);
 
+            return codFunc;
+
             Conexao.fecharConexao();
         }
 
         private void cbbFuncionarios_SelectedIndexChanged(object sender, EventArgs e)
         {
-            selecionaCodigoFuncionario(cbbFuncionarios.SelectedItem.ToString());
+           lblMostraCodigoFuncionario.Text = selecionaCodigoFuncionario(cbbFuncionarios.SelectedItem.ToString()).ToString();
+        }
+
+        public void selecionaUsuarios(int codFunc)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select codUsu,nome,senha from tbUsuarios where codFunc = @codFunc;";
+            comm.CommandType = CommandType.Text;
         }
 
         //variavel global
