@@ -281,6 +281,7 @@ namespace Cantina
             if (alterarFuncionarios(Convert.ToInt32(txtCodigo.Text)) == 1)
             {
                 MessageBox.Show("Funcionário alterado com sucesso!!!");
+
             }
             else
             {
@@ -315,11 +316,18 @@ namespace Cantina
             if (result == DialogResult.OK)
             {
                 //executar o método excluirFuncionarios
+                excluirFuncionarios(Convert.ToInt32(txtCodigo.Text));
             }
             else
             {
                 txtNome.Focus();
             }
+        }
+
+        private void btnLimpar_Click(object sender, EventArgs e)
+        {
+            limparCampos();
+            desabilitarCampos();
         }
     }
 }
