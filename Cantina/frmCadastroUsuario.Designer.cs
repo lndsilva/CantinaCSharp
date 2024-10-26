@@ -44,12 +44,12 @@ namespace Cantina
             this.btnCadastrar = new System.Windows.Forms.Button();
             this.btnNovo = new System.Windows.Forms.Button();
             this.gpbDadosUsuario = new System.Windows.Forms.GroupBox();
-            this.pnlCRUD = new System.Windows.Forms.Panel();
+            this.lblMostraCodigoFuncionario = new System.Windows.Forms.Label();
+            this.lblFuncionarios = new System.Windows.Forms.Label();
+            this.cbbFuncionarios = new System.Windows.Forms.ComboBox();
             this.txtRepetirSenha = new System.Windows.Forms.TextBox();
             this.lblRepetirSenha = new System.Windows.Forms.Label();
-            this.cbbFuncionarios = new System.Windows.Forms.ComboBox();
-            this.lblFuncionarios = new System.Windows.Forms.Label();
-            this.lblMostraCodigoFuncionario = new System.Windows.Forms.Label();
+            this.pnlCRUD = new System.Windows.Forms.Panel();
             this.gpbDadosUsuario.SuspendLayout();
             this.pnlCRUD.SuspendLayout();
             this.SuspendLayout();
@@ -192,6 +192,7 @@ namespace Cantina
             this.btnNovo.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnNovo.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // gpbDadosUsuario
             // 
@@ -214,19 +215,33 @@ namespace Cantina
             this.gpbDadosUsuario.TabStop = false;
             this.gpbDadosUsuario.Text = "Dados do usuário";
             // 
-            // pnlCRUD
+            // lblMostraCodigoFuncionario
             // 
-            this.pnlCRUD.Controls.Add(this.btnVoltar);
-            this.pnlCRUD.Controls.Add(this.btnLimpar);
-            this.pnlCRUD.Controls.Add(this.btnPesquisar);
-            this.pnlCRUD.Controls.Add(this.btnExcluir);
-            this.pnlCRUD.Controls.Add(this.btnAlterar);
-            this.pnlCRUD.Controls.Add(this.btnCadastrar);
-            this.pnlCRUD.Controls.Add(this.btnNovo);
-            this.pnlCRUD.Location = new System.Drawing.Point(1, 490);
-            this.pnlCRUD.Name = "pnlCRUD";
-            this.pnlCRUD.Size = new System.Drawing.Size(782, 59);
-            this.pnlCRUD.TabIndex = 22;
+            this.lblMostraCodigoFuncionario.AutoSize = true;
+            this.lblMostraCodigoFuncionario.Location = new System.Drawing.Point(466, 159);
+            this.lblMostraCodigoFuncionario.Name = "lblMostraCodigoFuncionario";
+            this.lblMostraCodigoFuncionario.Size = new System.Drawing.Size(213, 20);
+            this.lblMostraCodigoFuncionario.TabIndex = 13;
+            this.lblMostraCodigoFuncionario.Text = "Mostra código do funcionário";
+            this.lblMostraCodigoFuncionario.Visible = false;
+            // 
+            // lblFuncionarios
+            // 
+            this.lblFuncionarios.AutoSize = true;
+            this.lblFuncionarios.Location = new System.Drawing.Point(466, 57);
+            this.lblFuncionarios.Name = "lblFuncionarios";
+            this.lblFuncionarios.Size = new System.Drawing.Size(100, 20);
+            this.lblFuncionarios.TabIndex = 12;
+            this.lblFuncionarios.Text = "Funcionários";
+            // 
+            // cbbFuncionarios
+            // 
+            this.cbbFuncionarios.FormattingEnabled = true;
+            this.cbbFuncionarios.Location = new System.Drawing.Point(466, 78);
+            this.cbbFuncionarios.Name = "cbbFuncionarios";
+            this.cbbFuncionarios.Size = new System.Drawing.Size(244, 28);
+            this.cbbFuncionarios.TabIndex = 11;
+            this.cbbFuncionarios.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionarios_SelectedIndexChanged);
             // 
             // txtRepetirSenha
             // 
@@ -247,32 +262,19 @@ namespace Cantina
             this.lblRepetirSenha.TabIndex = 10;
             this.lblRepetirSenha.Text = "Repetir a senha";
             // 
-            // cbbFuncionarios
+            // pnlCRUD
             // 
-            this.cbbFuncionarios.FormattingEnabled = true;
-            this.cbbFuncionarios.Location = new System.Drawing.Point(466, 78);
-            this.cbbFuncionarios.Name = "cbbFuncionarios";
-            this.cbbFuncionarios.Size = new System.Drawing.Size(244, 28);
-            this.cbbFuncionarios.TabIndex = 11;
-            this.cbbFuncionarios.SelectedIndexChanged += new System.EventHandler(this.cbbFuncionarios_SelectedIndexChanged);
-            // 
-            // lblFuncionarios
-            // 
-            this.lblFuncionarios.AutoSize = true;
-            this.lblFuncionarios.Location = new System.Drawing.Point(466, 57);
-            this.lblFuncionarios.Name = "lblFuncionarios";
-            this.lblFuncionarios.Size = new System.Drawing.Size(100, 20);
-            this.lblFuncionarios.TabIndex = 12;
-            this.lblFuncionarios.Text = "Funcionários";
-            // 
-            // lblMostraCodigoFuncionario
-            // 
-            this.lblMostraCodigoFuncionario.AutoSize = true;
-            this.lblMostraCodigoFuncionario.Location = new System.Drawing.Point(466, 159);
-            this.lblMostraCodigoFuncionario.Name = "lblMostraCodigoFuncionario";
-            this.lblMostraCodigoFuncionario.Size = new System.Drawing.Size(213, 20);
-            this.lblMostraCodigoFuncionario.TabIndex = 13;
-            this.lblMostraCodigoFuncionario.Text = "Mostra código do funcionário";
+            this.pnlCRUD.Controls.Add(this.btnVoltar);
+            this.pnlCRUD.Controls.Add(this.btnLimpar);
+            this.pnlCRUD.Controls.Add(this.btnPesquisar);
+            this.pnlCRUD.Controls.Add(this.btnExcluir);
+            this.pnlCRUD.Controls.Add(this.btnAlterar);
+            this.pnlCRUD.Controls.Add(this.btnCadastrar);
+            this.pnlCRUD.Controls.Add(this.btnNovo);
+            this.pnlCRUD.Location = new System.Drawing.Point(1, 490);
+            this.pnlCRUD.Name = "pnlCRUD";
+            this.pnlCRUD.Size = new System.Drawing.Size(782, 59);
+            this.pnlCRUD.TabIndex = 22;
             // 
             // frmCadastroUsuario
             // 

@@ -246,7 +246,7 @@ namespace Cantina
         }
 
         //alterando funcionarios
-        public void alterarFuncionarios(int codFunc)
+        public int alterarFuncionarios(int codFunc)
         {
             MySqlCommand comm = new MySqlCommand();
             comm.CommandText = "update tbFuncionarios set nome = @nome,email = @email,cpf = @cpf, telCelular = @telCelular,cep = @cep, endereco = @endereco, numero = @numero,bairro = @bairro, cidade = @cidade, estado = @estado where codFunc = @codFunc;";
@@ -268,13 +268,24 @@ namespace Cantina
 
             comm.Connection = Conexao.obterConexao();
 
+            int res = comm.ExecuteNonQuery();
+
+            return res;
+
             Conexao.fecharConexao();
         }
 
         //criando alterar funcionarios
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-            alterarFuncionarios(Convert.ToInt32(txtCodigo.Text));
+            if (alterarFuncionarios(Convert.ToInt32(txtCodigo.Text)) == 1)
+            {
+                MessageBox.Show("Funcionário alterado com sucesso!!!");
+            }
+            else
+            {
+                MessageBox.Show("Erro ao alterar!!!");
+            }
         }
         //Excluindo funcionarios
         public int excluirFuncionarios(int codFunc)
