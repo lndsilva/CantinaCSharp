@@ -62,3 +62,4 @@ C:\Users\Laboratorio-Info\Documents\Visual Studio 2019\CantinaCSharp\Cantina\obj
 C:\Users\Laboratorio-Info\Documents\Visual Studio 2019\CantinaCSharp\Cantina\obj\Debug\Cantina.csproj.CopyComplete
 C:\Users\Laboratorio-Info\Documents\Visual Studio 2019\CantinaCSharp\Cantina\obj\Debug\Cantina.exe
 C:\Users\Laboratorio-Info\Documents\Visual Studio 2019\CantinaCSharp\Cantina\obj\Debug\Cantina.pdb
+C:\Users\Laboratorio-Info\Documents\Visual Studio 2019\CantinaCSharp\Cantina\obj\Debug\Cantina.frmClientes.resources
