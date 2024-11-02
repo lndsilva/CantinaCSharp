@@ -50,12 +50,10 @@ namespace Cantina
                     MessageBox.Show("Cadastrado com sucesso");
                     limparCampos();
                     desabilitarCampos();
-
                 }
                 else
                 {
                     MessageBox.Show("Erro ao cadastrar");
-
                 }
             }
         }
@@ -72,6 +70,42 @@ namespace Cantina
             comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
             comm.Parameters.Add("@telCelular", MySqlDbType.VarChar, 10).Value = mskTelefone.Text;
 
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            return resp;
+        }
+
+        //alterar clientes
+        public int alterarClientes(int codCli)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+            comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
+            comm.Parameters.Add("@telCelular", MySqlDbType.VarChar, 10).Value = mskTelefone.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            int resp = comm.ExecuteNonQuery();
+
+            return resp;
+        }
+
+        //excluir clientes
+        public int excluirClientes(int codCli)
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "";
+            comm.CommandType = CommandType.Text;
+
+            comm.Parameters.Clear();
+            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+            
             comm.Connection = Conexao.obterConexao();
 
             int resp = comm.ExecuteNonQuery();
@@ -132,6 +166,11 @@ namespace Cantina
         private void btnNovo_Click(object sender, EventArgs e)
         {
             habilitarCamposNovo();
+        }
+
+        private void btnAlterar_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
