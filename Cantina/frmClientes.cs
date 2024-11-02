@@ -113,6 +113,26 @@ namespace Cantina
             return resp;
         }
 
+        //carrega clientes
+        public void carregaClientes()
+        {
+            MySqlCommand comm = new MySqlCommand();
+            comm.CommandText = "select * from tbClientes";
+            comm.CommandType = CommandType.Text;
+
+            comm.Connection = Conexao.obterConexao();
+
+            MySqlDataAdapter da = new MySqlDataAdapter(comm);
+
+            DataTable clientes = new DataTable();
+
+            da.Fill(clientes);
+
+            dgvClientes.DataSource = clientes;
+
+
+        }
+
         //desabilitar campos
         public void desabilitarCampos()
         {
@@ -127,6 +147,8 @@ namespace Cantina
             btnLimpar.Enabled = false;
 
         }
+
+
         public void habilitarCamposNovo()
         {
             txtCodigo.Enabled = false;
@@ -171,6 +193,11 @@ namespace Cantina
         private void btnAlterar_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private void btnPesquisar_Click(object sender, EventArgs e)
+        {
+            carregaClientes();
         }
     }
 }

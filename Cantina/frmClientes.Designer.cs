@@ -48,9 +48,6 @@ namespace Cantina
             this.mskTelefone = new System.Windows.Forms.MaskedTextBox();
             this.gpbDadosPessoais = new System.Windows.Forms.GroupBox();
             this.dgvClientes = new System.Windows.Forms.DataGridView();
-            this.nome = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.email = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telCelular = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pnlCRUD.SuspendLayout();
             this.gpbDadosPessoais.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dgvClientes)).BeginInit();
@@ -92,6 +89,7 @@ namespace Cantina
             this.btnPesquisar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnPesquisar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnPesquisar.UseVisualStyleBackColor = true;
+            this.btnPesquisar.Click += new System.EventHandler(this.btnPesquisar_Click);
             // 
             // btnExcluir
             // 
@@ -161,7 +159,7 @@ namespace Cantina
             // lblCodigo
             // 
             this.lblCodigo.AutoSize = true;
-            this.lblCodigo.Location = new System.Drawing.Point(27, 45);
+            this.lblCodigo.Location = new System.Drawing.Point(6, 45);
             this.lblCodigo.Name = "lblCodigo";
             this.lblCodigo.Size = new System.Drawing.Size(59, 20);
             this.lblCodigo.TabIndex = 0;
@@ -170,7 +168,7 @@ namespace Cantina
             // txtCodigo
             // 
             this.txtCodigo.Enabled = false;
-            this.txtCodigo.Location = new System.Drawing.Point(27, 68);
+            this.txtCodigo.Location = new System.Drawing.Point(6, 68);
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
             this.txtCodigo.TabIndex = 1;
@@ -178,7 +176,7 @@ namespace Cantina
             // lblNome
             // 
             this.lblNome.AutoSize = true;
-            this.lblNome.Location = new System.Drawing.Point(27, 113);
+            this.lblNome.Location = new System.Drawing.Point(6, 113);
             this.lblNome.Name = "lblNome";
             this.lblNome.Size = new System.Drawing.Size(51, 20);
             this.lblNome.TabIndex = 2;
@@ -186,7 +184,7 @@ namespace Cantina
             // 
             // txtNome
             // 
-            this.txtNome.Location = new System.Drawing.Point(27, 136);
+            this.txtNome.Location = new System.Drawing.Point(6, 136);
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(385, 26);
             this.txtNome.TabIndex = 2;
@@ -194,7 +192,7 @@ namespace Cantina
             // lblEmail
             // 
             this.lblEmail.AutoSize = true;
-            this.lblEmail.Location = new System.Drawing.Point(468, 113);
+            this.lblEmail.Location = new System.Drawing.Point(476, 113);
             this.lblEmail.Name = "lblEmail";
             this.lblEmail.Size = new System.Drawing.Size(53, 20);
             this.lblEmail.TabIndex = 8;
@@ -202,7 +200,7 @@ namespace Cantina
             // 
             // txtEmail
             // 
-            this.txtEmail.Location = new System.Drawing.Point(468, 136);
+            this.txtEmail.Location = new System.Drawing.Point(476, 136);
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(289, 26);
             this.txtEmail.TabIndex = 3;
@@ -210,7 +208,7 @@ namespace Cantina
             // lblTelefone
             // 
             this.lblTelefone.AutoSize = true;
-            this.lblTelefone.Location = new System.Drawing.Point(27, 183);
+            this.lblTelefone.Location = new System.Drawing.Point(6, 183);
             this.lblTelefone.Name = "lblTelefone";
             this.lblTelefone.Size = new System.Drawing.Size(71, 20);
             this.lblTelefone.TabIndex = 10;
@@ -218,7 +216,7 @@ namespace Cantina
             // 
             // mskTelefone
             // 
-            this.mskTelefone.Location = new System.Drawing.Point(27, 211);
+            this.mskTelefone.Location = new System.Drawing.Point(6, 211);
             this.mskTelefone.Mask = "99999-9999";
             this.mskTelefone.Name = "mskTelefone";
             this.mskTelefone.Size = new System.Drawing.Size(97, 26);
@@ -245,53 +243,11 @@ namespace Cantina
             // 
             // dgvClientes
             // 
-            this.dgvClientes.AllowUserToAddRows = false;
-            this.dgvClientes.AllowUserToDeleteRows = false;
-            this.dgvClientes.AllowUserToResizeColumns = false;
-            this.dgvClientes.AllowUserToResizeRows = false;
-            this.dgvClientes.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dgvClientes.ColumnHeadersVisible = false;
-            this.dgvClientes.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.nome,
-            this.email,
-            this.telCelular});
-            this.dgvClientes.Cursor = System.Windows.Forms.Cursors.Default;
-            this.dgvClientes.Location = new System.Drawing.Point(27, 264);
+            this.dgvClientes.Location = new System.Drawing.Point(6, 254);
             this.dgvClientes.Name = "dgvClientes";
-            this.dgvClientes.Size = new System.Drawing.Size(730, 193);
-            this.dgvClientes.TabIndex = 5;
-            // 
-            // nome
-            // 
-            this.nome.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.None;
-            this.nome.FillWeight = 125F;
-            this.nome.HeaderText = "Nome";
-            this.nome.MaxInputLength = 100;
-            this.nome.Name = "nome";
-            this.nome.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.nome.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            this.nome.Width = 286;
-            // 
-            // email
-            // 
-            this.email.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.email.FillWeight = 125F;
-            this.email.HeaderText = "E-mail";
-            this.email.MaxInputLength = 100;
-            this.email.Name = "email";
-            this.email.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.email.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
-            // 
-            // telCelular
-            // 
-            this.telCelular.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.telCelular.FillWeight = 50F;
-            this.telCelular.HeaderText = "Telefone";
-            this.telCelular.MaxInputLength = 10;
-            this.telCelular.Name = "telCelular";
-            this.telCelular.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.telCelular.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.NotSortable;
+            this.dgvClientes.Size = new System.Drawing.Size(759, 215);
+            this.dgvClientes.TabIndex = 11;
             // 
             // frmClientes
             // 
@@ -333,8 +289,5 @@ namespace Cantina
         private System.Windows.Forms.MaskedTextBox mskTelefone;
         private System.Windows.Forms.GroupBox gpbDadosPessoais;
         private System.Windows.Forms.DataGridView dgvClientes;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nome;
-        private System.Windows.Forms.DataGridViewTextBoxColumn email;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telCelular;
     }
 }
