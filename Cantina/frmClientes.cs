@@ -39,17 +39,24 @@ namespace Cantina
 
         private void btnCadastrar_Click(object sender, EventArgs e)
         {
-            if (cadastrarClientes() == 1)
+            if (txtNome.Text.Equals("") || txtEmail.Text.Equals("") || mskTelefone.Text.Equals("     -"))
             {
-                MessageBox.Show("Cadastrado com sucesso");
-                limparCampos();
-                desabilitarCampos();
-
+                MessageBox.Show("Favor preencher os campos");
             }
             else
             {
-                MessageBox.Show("Erro ao cadastrar");
+                if (cadastrarClientes() == 1)
+                {
+                    MessageBox.Show("Cadastrado com sucesso");
+                    limparCampos();
+                    desabilitarCampos();
 
+                }
+                else
+                {
+                    MessageBox.Show("Erro ao cadastrar");
+
+                }
             }
         }
 
