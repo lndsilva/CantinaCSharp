@@ -169,6 +169,7 @@ namespace Cantina
             // 
             this.txtCodigo.Enabled = false;
             this.txtCodigo.Location = new System.Drawing.Point(6, 68);
+            this.txtCodigo.MaxLength = 11;
             this.txtCodigo.Name = "txtCodigo";
             this.txtCodigo.Size = new System.Drawing.Size(100, 26);
             this.txtCodigo.TabIndex = 1;
@@ -185,6 +186,7 @@ namespace Cantina
             // txtNome
             // 
             this.txtNome.Location = new System.Drawing.Point(6, 136);
+            this.txtNome.MaxLength = 100;
             this.txtNome.Name = "txtNome";
             this.txtNome.Size = new System.Drawing.Size(385, 26);
             this.txtNome.TabIndex = 2;
@@ -201,6 +203,7 @@ namespace Cantina
             // txtEmail
             // 
             this.txtEmail.Location = new System.Drawing.Point(476, 136);
+            this.txtEmail.MaxLength = 100;
             this.txtEmail.Name = "txtEmail";
             this.txtEmail.Size = new System.Drawing.Size(289, 26);
             this.txtEmail.TabIndex = 3;
@@ -237,17 +240,22 @@ namespace Cantina
             this.gpbDadosPessoais.Location = new System.Drawing.Point(7, 9);
             this.gpbDadosPessoais.Name = "gpbDadosPessoais";
             this.gpbDadosPessoais.Size = new System.Drawing.Size(771, 472);
-            this.gpbDadosPessoais.TabIndex = 21;
+            this.gpbDadosPessoais.TabIndex = 0;
             this.gpbDadosPessoais.TabStop = false;
             this.gpbDadosPessoais.Text = "Dados pessoais";
             // 
             // dgvClientes
             // 
+            this.dgvClientes.AllowUserToDeleteRows = false;
+            this.dgvClientes.AllowUserToResizeColumns = false;
+            this.dgvClientes.AllowUserToResizeRows = false;
+            this.dgvClientes.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dgvClientes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgvClientes.Location = new System.Drawing.Point(6, 254);
             this.dgvClientes.Name = "dgvClientes";
             this.dgvClientes.Size = new System.Drawing.Size(759, 215);
-            this.dgvClientes.TabIndex = 11;
+            this.dgvClientes.TabIndex = 5;
+            this.dgvClientes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvClientes_CellContentClick);
             // 
             // frmClientes
             // 

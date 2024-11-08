@@ -105,7 +105,7 @@ namespace Cantina
 
             comm.Parameters.Clear();
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
-            
+
             comm.Connection = Conexao.obterConexao();
 
             int resp = comm.ExecuteNonQuery();
@@ -117,7 +117,7 @@ namespace Cantina
         public void carregaClientes()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select * from tbClientes";
+            comm.CommandText = "select codcli as 'Código', nome as 'Nome', email as 'E-mail', telCelular as 'Telefone' from tbClientes";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
@@ -129,6 +129,8 @@ namespace Cantina
             da.Fill(clientes);
 
             dgvClientes.DataSource = clientes;
+
+            Conexao.fecharConexao();
 
 
         }
@@ -164,6 +166,22 @@ namespace Cantina
             txtNome.Focus();
 
         }
+
+        public void habilitarCamposPesquisar()
+        {
+            txtCodigo.Enabled = false;
+            txtEmail.Enabled = true;
+            txtNome.Enabled = true;
+            mskTelefone.Enabled = true;
+
+            btnCadastrar.Enabled = false;
+            btnAlterar.Enabled = true;
+            btnExcluir.Enabled = true;
+            btnLimpar.Enabled = true;
+            btnNovo.Enabled = false;
+            txtNome.Focus();
+        }
+
         public void limparCampos()
         {
             txtCodigo.Clear();
@@ -198,6 +216,23 @@ namespace Cantina
         private void btnPesquisar_Click(object sender, EventArgs e)
         {
             carregaClientes();
+            habilitarCamposPesquisar();
+        }
+
+        private void dgvClientes_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            int indice = e.RowIndex;
+
+            if (indice == -1)
+            {
+                return;
+            }
+            else
+            {
+                DataGridViewRow rowData = dgvClientes.Rows[indice];
+
+
+            }
         }
     }
 }
