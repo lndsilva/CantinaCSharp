@@ -231,6 +231,10 @@ namespace Cantina
             {
                 DataGridViewRow rowData = dgvClientes.Rows[indice];
 
+                txtCodigo.Text = rowData.Cells[0].Value.ToString();
+                txtNome.Text = rowData.Cells[1].Value.ToString();
+                txtEmail.Text = rowData.Cells[2].Value.ToString();
+                mskTelefone.Text = rowData.Cells[3].Value.ToString();
 
             }
         }
