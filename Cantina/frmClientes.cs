@@ -103,11 +103,11 @@ namespace Cantina
         public int excluirClientes(int codCli)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "";
+            comm.CommandText = "delete from tbClientes where codCli = @codCli";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
-            comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
+            comm.Parameters.Add("@codCli", MySqlDbType.Int32, 11).Value = codCli;
 
             comm.Connection = Conexao.obterConexao();
 
@@ -249,6 +249,25 @@ namespace Cantina
                 txtEmail.Text = rowData.Cells[2].Value.ToString();
                 mskTelefone.Text = rowData.Cells[3].Value.ToString();
 
+            }
+        }
+
+        private void btnExcluir_Click(object sender, EventArgs e)
+        {
+            DialogResult result = MessageBox.Show("Deseja excluir?",
+                "Sistema", MessageBoxButtons.OKCancel,
+                MessageBoxIcon.Question, MessageBoxDefaultButton.Button2);
+
+            if (result == DialogResult.OK)
+            {
+                excluirClientes(Convert.ToInt32(txtCodigo.Text));
+                carregaClientes();
+                limparCampos();
+                txtNome.Focus();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao excluir");
             }
         }
     }
