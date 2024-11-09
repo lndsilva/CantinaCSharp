@@ -81,19 +81,22 @@ namespace Cantina
         public int alterarClientes(int codCli)
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "";
+            comm.CommandText = "update tbclientes set nome = @nome, email = @email, telCelular = @telCelular where codCli = @codCli; ";
             comm.CommandType = CommandType.Text;
 
             comm.Parameters.Clear();
             comm.Parameters.Add("@nome", MySqlDbType.VarChar, 100).Value = txtNome.Text;
             comm.Parameters.Add("@email", MySqlDbType.VarChar, 100).Value = txtEmail.Text;
             comm.Parameters.Add("@telCelular", MySqlDbType.VarChar, 10).Value = mskTelefone.Text;
+            comm.Parameters.Add("@codCli", MySqlDbType.Int32, 11).Value = codCli;
 
             comm.Connection = Conexao.obterConexao();
 
             int resp = comm.ExecuteNonQuery();
 
             return resp;
+
+            Conexao.fecharConexao();
         }
 
         //excluir clientes
@@ -117,7 +120,7 @@ namespace Cantina
         public void carregaClientes()
         {
             MySqlCommand comm = new MySqlCommand();
-            comm.CommandText = "select codcli as 'Código', nome as 'Nome', email as 'E-mail', telCelular as 'Telefone' from tbClientes";
+            comm.CommandText = "select codCli as 'Código', nome as 'Nome', email as 'E-mail', telCelular as 'Telefone' from tbClientes";
             comm.CommandType = CommandType.Text;
 
             comm.Connection = Conexao.obterConexao();
@@ -164,7 +167,6 @@ namespace Cantina
             btnLimpar.Enabled = true;
             btnNovo.Enabled = false;
             txtNome.Focus();
-
         }
 
         public void habilitarCamposPesquisar()
@@ -210,7 +212,18 @@ namespace Cantina
 
         private void btnAlterar_Click(object sender, EventArgs e)
         {
-
+            if (alterarClientes(Convert.ToInt32(txtCodigo.Text)) == 1)
+            {
+                MessageBox.Show("Alterado com sucesso!!!");
+                desabilitarCampos();
+                limparCampos();
+                carregaClientes();
+            }
+            else
+            {
+                MessageBox.Show("Erro ao alterar");
+                limparCampos();
+            }
         }
 
         private void btnPesquisar_Click(object sender, EventArgs e)
